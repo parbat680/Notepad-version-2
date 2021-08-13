@@ -60,6 +60,7 @@ class window extends JFrame implements ActionListener{
 		
 		mainPanel = new JPanel();
 		
+		// start of JmenuBar
 		menu=new JMenuBar();
 		menu.setBackground(Color.white);
 		
@@ -107,6 +108,7 @@ class window extends JFrame implements ActionListener{
 		edit.add(selectAll);
 		edit.add(replace);
 		
+		// end of JMenuBar
 		
 		cb=new JComboBox();
 		
@@ -117,16 +119,8 @@ class window extends JFrame implements ActionListener{
 		cb.addItem("Georgia");
 		
 		cb.addActionListener(this);
-		
-		//font_style=new JLabel("Font Style");
-		//font_style.setMaximumSize(new Dimension(100,20));
-		
-		
-		
-		
 		menu.add(file);
 		menu.add(edit);
-		//menu.add(font_style);
 		menu.add(cb);
 		
 		int width=this.getWidth();
@@ -134,27 +128,18 @@ class window extends JFrame implements ActionListener{
 		 
 		JScrollPane pane=new JScrollPane(note,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
-		
 		note.setFont(new Font("Arial",Font.BOLD,24));
-		
 		note.setLineWrap(true);
 		note.setWrapStyleWord(true);
 		note.setBorder(BorderFactory.createEmptyBorder());		
 		
-		
-		
+		// adding to compoenets to JFrame
 		this.add(pane);
 		this.setJMenuBar(menu);
-		this.pack();
-		
-		
-		
-		
+		this.pack();	
 	}
 	
-	
-	
-
+	// Action Listener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -169,12 +154,7 @@ class window extends JFrame implements ActionListener{
 			note.cut();
 		}
 		else if(e.getActionCommand().equals("Replace")) {
-			
-			
 			replace r1=new replace();
-			
-			
-			
 		}
 		else if(e.getActionCommand().equals("Select All")) {
 			note.selectAll();
@@ -206,13 +186,8 @@ class window extends JFrame implements ActionListener{
 				}
 				catch(Exception e1) {
 					e1.printStackTrace();
+				}		
 				}
-				
-				
-				
-						
-				}
-				
 			}
 			
 		else if(e.getActionCommand().equals("Save")) {
